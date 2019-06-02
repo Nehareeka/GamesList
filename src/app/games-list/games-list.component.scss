@@ -1,0 +1,17 @@
+@import "../app.component.scss";  
+
+ul {
+    list-style-type: none;
+}
+li {
+    display: block;
+    line-height: 30px;
+}
+.description {
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.pagination {
+    display: inline-flex;
+}

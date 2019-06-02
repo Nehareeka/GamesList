@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+/*Light Switch*/
+
+$dark-color: #111;
+$light-color: #eee;
+
+body.dark-mode {
+  background-color: $dark-color;
+  color: $light-color;
+  tr {
+    color: $light-color;
+  }
+  button {
+    background-color: $light-color;
+    color: $dark-color;
+  }
+}
+
+body.light-mode {
+  background-color: $light-color;
+  color: $dark-color;
+  tr {
+    color: $dark-color;
+  }
+  button {
+    background-color: $dark-color;
+    color: $light-color;
+  }
+}

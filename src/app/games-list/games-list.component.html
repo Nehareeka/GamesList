@@ -1,0 +1,70 @@
+<div class='panel panel-primary'>
+  <div class='panel-heading'>
+    {{pageTitle}}
+  </div>
+  <div class='panel-body'>
+    <div class="row">
+      <div class="col-md-4">
+        <input *ngIf="config?.filtering" placeholder="Filter all columns"
+         [appFilter]="config?.filtering" class="form-control" (tableChanged)="onChangeTable(config)"
+        />
+      </div>
+    </div>
+    <br>
+    <div class='table-responsive'>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th *ngFor="let column of columns" [appSort]="config" [column]="column"
+             (sortChanged)="onChangeTable($event)">
+              {{column.title}}
+              <i class="pull-right fa" [ngClass]="{'fa-chevron-down': column.sort === 'desc', 'fa-chevron-up': column.sort === 'asc'}"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td *ngFor="let column of columns">
+            <input *ngIf="column.filtering" placeholder="{{column.filtering.placeholder}}"
+            [appFilter]="column.filtering"
+            class="form-control"
+            style="width: auto;"
+            (tableChanged)="tableChanged(config)"/>
+          </td>
+          </tr>
+          <tr *ngFor='let game of pagedItems'>
+            <td>{{ game?.Rank }}</td>
+            <td>
+              <a [routerLink]="['/detail',game.Rank]">{{ game?.Name }}</a>
+            </td>
+            <td>{{ game?.Platform }}</td>
+            <td>{{ game?.Year }}</td>
+            <td>{{ game?.Genre }}</td>
+            <td>{{ game?.Publisher }}</td>
+            <td>{{ game?.Global_Sales }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <!-- pager -->
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+          <a class="page-link" (click)="setPage(1)">First</a>
+      </li>
+      <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+          <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a class="page-link" (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+      </li>
+      <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+      </li>
+  </ul>
+</div>

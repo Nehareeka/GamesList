@@ -1,0 +1,34 @@
+/*Light Switch*/
+
+$dark-color: #111;
+$light-color: #eee;
+
+body.dark-mode {
+  background-color: #111;
+  color: $light-color;
+  .panel .panel-primary, .table {
+    background-color: $light-color;
+  }
+  tr {
+    color: $light-color;
+  }
+  button {
+    background-color: $light-color;
+    color: $dark-color;
+  }
+}
+
+body.light-mode {
+  background-color: $light-color;
+  color: $dark-color;
+  .panel .panel-primary, .table {
+    background-color: $dark-color;
+  }
+  tr {
+    color: $dark-color;
+  }
+  button {
+    background-color: $dark-color;
+    color: $light-color;
+  }
+}
