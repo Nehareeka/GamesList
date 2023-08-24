@@ -21,7 +21,7 @@ export class GamesListComponent implements OnInit {
 
 
   public config: any;
-  private pageTitle = 'Here is a list of popular games: ';
+  public pageTitle = 'Here is a list of popular games: ';
   constructor(private _pagerService: PagerService,
   private route: ActivatedRoute) { }
 

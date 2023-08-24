@@ -31,8 +31,8 @@ import { PagerService } from './services/pager.service';
     ])
   ],
   providers: [GamesService,
-    PagerService,
-    GamesResolver],
+    PagerService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

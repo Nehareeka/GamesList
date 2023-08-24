@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { IGame } from '../models/game';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { IGame } from '../models/game';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GamesService {
   private _gameUrl = '../../assets/games.csv';
-  private gamesList: any;
+  private gamesList: IGame[];
   getGamesList() {
     return this.gamesList;
   }
 
-  setGamesList(list: any) {
+  setGamesList(list: IGame[]) {
     this.gamesList = list;
   }
 
